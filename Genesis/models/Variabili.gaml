@@ -14,6 +14,7 @@ global{
 	geometry shape <- envelope(shape_file_bounds);
 	float step <- 10 #mn;
 	date starting_date <- date("2019-09-01-00-00-00");	
+	int yeshVariabile<- 3;
 }
 /* Insert your model definition here */
 

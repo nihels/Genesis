@@ -24,7 +24,7 @@ global {
 	float destroy <- 0.02;
 	int repair_time <- 2 ;
 	graph the_graph;
-	int diegovariabile <-5;
+	
 	init {
 		create building from: shape_file_buildings with: [type::string(read ("NATURE"))] {
 			if type="Industrial" {
