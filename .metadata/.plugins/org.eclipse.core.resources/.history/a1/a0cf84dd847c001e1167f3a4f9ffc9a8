@@ -1,0 +1,17 @@
+/**
+* Name: Genesis
+* Based on the internal empty template. 
+* Author: DiegoSaitta
+* Tags: 
+*/
+
+model Genesis
+
+global {
+	file shape_file_buildings <- file("../includes/building.shp");
+	file shape_file_roads <- file("../includes/road.shp");
+	file shape_file_bounds <- file("../includes/bounds.shp");
+	geometry shape <- envelope(shape_file_bounds);
+}
+/* Insert your model definition here */
+

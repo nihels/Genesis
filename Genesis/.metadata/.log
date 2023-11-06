@@ -1,0 +1,233 @@
+!SESSION 2023-11-06 10:07:34.696 -----------------------------------------------
+eclipse.buildId=${build.id}
+java.version=17.0.8
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data @noDefault
+
+!ENTRY org.eclipse.ui 4 4 2023-11-06 10:08:18.992
+!MESSAGE Unable to process element: editorOnboardingCommand in perspective extension: null
+
+!ENTRY org.eclipse.ui 4 4 2023-11-06 10:08:18.992
+!MESSAGE Unable to process element: editorOnboardingCommand in perspective extension: null
+
+!ENTRY org.eclipse.core.jobs 4 2 2023-11-06 10:08:47.576
+!MESSAGE An internal error occurred during: "Refreshing the GAMA Workspace".
+!STACK 0
+com.google.inject.ProvisionException: Unable to provision, see the following errors:
+
+1) [Guice/ErrorInCustomProvider]: IllegalStateException: The bundle has not been started!
+  at MethodBasedModule.configure(MethodBasedModule.java:76)
+      \_ installed by: Modules$OverrideModule -> Modules$OverrideModule -> SharedStateModule
+  at PreferenceStoreWhitespaceInformationProvider.storage2UriMapper(PreferenceStoreWhitespaceInformationProvider.java:41)
+      \_ for field storage2UriMapper
+  while locating PreferenceStoreWhitespaceInformationProvider
+  at AbstractDeclarativeFormatter.whitespaceInformationProvider(AbstractDeclarativeFormatter.java:37)
+      \_ for field whitespaceInformationProvider
+  while locating GamlFormatter
+  at Serializer.formatter(Serializer.java:57)
+      \_ for field formatter
+  while locating Serializer
+  at XtextResource.serializer(XtextResource.java:490)
+      \_ for field serializer
+  while locating GamlResource
+  while locating XtextResource
+
+Learn more:
+  https://github.com/google/guice/wiki/ERROR_IN_CUSTOM_PROVIDER
+
+1 error
+
+======================
+Full classname legend:
+======================
+AbstractDeclarativeFormatter:                 "org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter"
+GamlFormatter:                                "msi.gama.lang.gaml.formatting.GamlFormatter"
+GamlResource:                                 "msi.gama.lang.gaml.resource.GamlResource"
+MethodBasedModule:                            "org.eclipse.xtext.service.MethodBasedModule"
+Modules$OverrideModule:                       "com.google.inject.util.Modules$OverrideModule"
+PreferenceStoreWhitespaceInformationProvider: "org.eclipse.xtext.ui.editor.formatting.PreferenceStoreWhitespaceInformationProvider"
+Serializer:                                   "org.eclipse.xtext.serializer.impl.Serializer"
+SharedStateModule:                            "org.eclipse.xtext.ui.shared.SharedStateModule"
+XtextResource:                                "org.eclipse.xtext.resource.XtextResource"
+========================
+End of classname legend:
+========================
+
+	at com.google.inject.internal.InternalProvisionException.toProvisionException(InternalProvisionException.java:251)
+	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1103)
+	at org.eclipse.xtext.resource.XtextResourceFactory.createResource(XtextResourceFactory.java:28)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.createResource(ResourceSetImpl.java:434)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandCreateResource(ResourceSetImpl.java:243)
+	at org.eclipse.xtext.resource.XtextResourceSet.getResource(XtextResourceSet.java:261)
+	at org.eclipse.xtext.resource.SynchronizedXtextResourceSet.getResource(SynchronizedXtextResourceSet.java:33)
+	at msi.gama.lang.gaml.resource.GamlResourceInfoProvider.getInfo(GamlResourceInfoProvider.java:139)
+	at msi.gaml.compilation.GAML.getInfo(GAML.java:335)
+	at ummisco.gama.ui.metadata.FileMetaDataProvider.createGamlFileMetaData(FileMetaDataProvider.java:509)
+	at ummisco.gama.ui.metadata.FileMetaDataProvider.lambda$0(FileMetaDataProvider.java:398)
+	at ummisco.gama.ui.metadata.FileMetaDataProvider.getMetaData(FileMetaDataProvider.java:428)
+	at ummisco.gama.ui.navigator.contents.ResourceManager.processAddition(ResourceManager.java:382)
+	at ummisco.gama.ui.navigator.contents.ResourceManager.visit(ResourceManager.java:584)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:51)
+	at ummisco.gama.ui.navigator.contents.ResourceManager.resourceChanged(ResourceManager.java:330)
+	at ummisco.gama.ui.navigator.contents.ResourceManager.lambda$0(ResourceManager.java:130)
+	at ummisco.gama.ui.utils.WorkbenchHelper.run(WorkbenchHelper.java:148)
+	at ummisco.gama.ui.navigator.contents.ResourceManager.unblock(ResourceManager.java:123)
+	at ummisco.gama.ui.commands.RefreshHandler$3.runInWorkspace(RefreshHandler.java:185)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalStateException: The bundle has not been started!
+	at org.eclipse.xtext.ui.shared.Access$InternalProvider.get(Access.java:47)
+	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:86)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(InternalFactoryToInitializableAdapter.java:57)
+	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:60)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.get(InternalFactoryToInitializableAdapter.java:47)
+	at com.google.inject.internal.SingleFieldInjector.inject(SingleFieldInjector.java:50)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:146)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:124)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:296)
+	at com.google.inject.internal.FactoryProxy.get(FactoryProxy.java:60)
+	at com.google.inject.internal.SingleFieldInjector.inject(SingleFieldInjector.java:50)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:146)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:124)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:296)
+	at com.google.inject.internal.FactoryProxy.get(FactoryProxy.java:60)
+	at com.google.inject.internal.SingleFieldInjector.inject(SingleFieldInjector.java:50)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:146)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:124)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:296)
+	at com.google.inject.internal.FactoryProxy.get(FactoryProxy.java:60)
+	at com.google.inject.internal.SingleFieldInjector.inject(SingleFieldInjector.java:50)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:146)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:124)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:296)
+	at com.google.inject.internal.FactoryProxy.get(FactoryProxy.java:60)
+	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1100)
+	... 24 more
+
+!ENTRY org.apache.log4j 4 0 2023-11-06 10:08:47.825
+!MESSAGE org.eclipse.xtext.builder.impl.XtextBuilder  - Unable to provision, see the following errors:
+
+1) [Guice/ErrorInCustomProvider]: IllegalStateException: The bundle has not been started!
+  at MethodBasedModule.configure(MethodBasedModule.java:76)
+      \_ installed by: Modules$OverrideModule -> Modules$OverrideModule -> SharedStateModule
+  at PreferenceStoreWhitespaceInformationProvider.storage2UriMapper(PreferenceStoreWhitespaceInformationProvider.java:41)
+      \_ for field storage2UriMapper
+  while locating PreferenceStoreWhitespaceInformationProvider
+  at LineSeparatorHarmonizer.whitespaceInformationProvider(LineSeparatorHarmonizer.java:25)
+      \_ for field whitespaceInformationProvider
+  while locating LineSeparatorHarmonizer
+  at AbstractFileSystemAccess.postProcessor(AbstractFileSystemAccess.java:148)
+      \_ for field postProcessor
+  while locating EclipseResourceFileSystemAccess2
+
+Learn more:
+  https://github.com/google/guice/wiki/ERROR_IN_CUSTOM_PROVIDER
+
+1 error
+
+======================
+Full classname legend:
+======================
+AbstractFileSystemAccess:                     "org.eclipse.xtext.generator.AbstractFileSystemAccess"
+EclipseResourceFileSystemAccess2:             "org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2"
+LineSeparatorHarmonizer:                      "org.eclipse.xtext.generator.LineSeparatorHarmonizer"
+MethodBasedModule:                            "org.eclipse.xtext.service.MethodBasedModule"
+Modules$OverrideModule:                       "com.google.inject.util.Modules$OverrideModule"
+PreferenceStoreWhitespaceInformationProvider: "org.eclipse.xtext.ui.editor.formatting.PreferenceStoreWhitespaceInformationProvider"
+SharedStateModule:                            "org.eclipse.xtext.ui.shared.SharedStateModule"
+========================
+End of classname legend:
+========================
+
+
+!STACK 0
+com.google.inject.ProvisionException: Unable to provision, see the following errors:
+
+1) [Guice/ErrorInCustomProvider]: IllegalStateException: The bundle has not been started!
+  at MethodBasedModule.configure(MethodBasedModule.java:76)
+      \_ installed by: Modules$OverrideModule -> Modules$OverrideModule -> SharedStateModule
+  at PreferenceStoreWhitespaceInformationProvider.storage2UriMapper(PreferenceStoreWhitespaceInformationProvider.java:41)
+      \_ for field storage2UriMapper
+  while locating PreferenceStoreWhitespaceInformationProvider
+  at LineSeparatorHarmonizer.whitespaceInformationProvider(LineSeparatorHarmonizer.java:25)
+      \_ for field whitespaceInformationProvider
+  while locating LineSeparatorHarmonizer
+  at AbstractFileSystemAccess.postProcessor(AbstractFileSystemAccess.java:148)
+      \_ for field postProcessor
+  while locating EclipseResourceFileSystemAccess2
+
+Learn more:
+  https://github.com/google/guice/wiki/ERROR_IN_CUSTOM_PROVIDER
+
+1 error
+
+======================
+Full classname legend:
+======================
+AbstractFileSystemAccess:                     "org.eclipse.xtext.generator.AbstractFileSystemAccess"
+EclipseResourceFileSystemAccess2:             "org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2"
+LineSeparatorHarmonizer:                      "org.eclipse.xtext.generator.LineSeparatorHarmonizer"
+MethodBasedModule:                            "org.eclipse.xtext.service.MethodBasedModule"
+Modules$OverrideModule:                       "com.google.inject.util.Modules$OverrideModule"
+PreferenceStoreWhitespaceInformationProvider: "org.eclipse.xtext.ui.editor.formatting.PreferenceStoreWhitespaceInformationProvider"
+SharedStateModule:                            "org.eclipse.xtext.ui.shared.SharedStateModule"
+========================
+End of classname legend:
+========================
+
+	at com.google.inject.internal.InternalProvisionException.toProvisionException(InternalProvisionException.java:251)
+	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1103)
+	at org.eclipse.xtext.builder.BuilderParticipant.build(BuilderParticipant.java:244)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant$DeferredBuilderParticipant.build(RegistryBuilderParticipant.java:164)
+	at org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.build(RegistryBuilderParticipant.java:70)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:525)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.addInfosFromTaskAndBuild(XtextBuilder.java:455)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.fullBuild(XtextBuilder.java:562)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:333)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1020)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:247)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:392)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:395)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:506)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:454)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:536)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:161)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:255)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalStateException: The bundle has not been started!
+	at org.eclipse.xtext.ui.shared.Access$InternalProvider.get(Access.java:47)
+	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:86)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(InternalFactoryToInitializableAdapter.java:57)
+	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:60)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.get(InternalFactoryToInitializableAdapter.java:47)
+	at com.google.inject.internal.SingleFieldInjector.inject(SingleFieldInjector.java:50)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:146)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:124)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:296)
+	at com.google.inject.internal.FactoryProxy.get(FactoryProxy.java:60)
+	at com.google.inject.internal.SingleFieldInjector.inject(SingleFieldInjector.java:50)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:146)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:124)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:296)
+	at com.google.inject.internal.FactoryProxy.get(FactoryProxy.java:60)
+	at com.google.inject.internal.SingleFieldInjector.inject(SingleFieldInjector.java:50)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:146)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:124)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:296)
+	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1100)
+	... 20 more
