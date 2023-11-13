@@ -10,7 +10,7 @@ model Genesis
 import "Variabili.gaml"
 global {
 	file shape_file_buildings <- file("../includes/Oct2023.shp");
-    file shape_file_roads <- file("../includes/PRoads.shp");
+    file shape_file_roads <- file("../includes/rrr.shp");
     file shape_file_bounds <- file("../includes/Oct2023.shp");
     geometry shape <- envelope(shape_file_bounds);
     float step <- 0.3 #mn;
@@ -99,9 +99,9 @@ species building {
 
 species road {
     float destruction_coeff <- rnd(1.0, 2.0) max: 2.0;
-    //int colorValue <- int(255 * (destruction_coeff - 1)) update: int(255 * (destruction_coeff - 1));
-    //rgb color <- rgb(min([255, colorValue]), max([0, 255 - colorValue]), 0) update: rgb(min([255, colorValue]), max([0, 255 - colorValue]), 0);
-	rgb color <- #black;
+    int colorValue <- int(255 * (destruction_coeff - 1)) update: int(255 * (destruction_coeff - 1));
+    rgb color <- rgb(min([255, colorValue]), max([0, 255 - colorValue]), 0) update: rgb(min([255, colorValue]), max([0, 255 - colorValue]), 0);
+
     aspect base {
         draw shape color: color;
     }
