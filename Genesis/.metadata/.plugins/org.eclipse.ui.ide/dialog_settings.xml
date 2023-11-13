@@ -2,9 +2,13 @@
 <section name="Workbench">
 	<section name="ExternalProjectImportWizard">
 		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="true"/>
-		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="true"/>
 		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\DiegoSaitta\source\repos\Genesis\Genesis"/>
+			<item value="C:\Users\DiegoSaitta\source\repos\Genesis"/>
 			<item value="C:\Users\SaiYeshwanthChavala\Documents\Genesis\Genesis"/>
 			<item value="C:\Users\SaiYeshwanthChavala\Documents\Genesis"/>
 		</list>
@@ -18,6 +22,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\DiegoSaitta\source\repos\Genesis\Genesis"/>
 			<item value="C:\Users\SaiYeshwanthChavala\Documents\Genesis"/>
 			<item value="C:\Users\SaiYeshwanthChavala\Documents\Genesis\Genesis"/>
 		</list>
