@@ -13,7 +13,7 @@ global {
     file shape_file_roads <- file("../includes/PRoads.shp");
     file shape_file_bounds <- file("../includes/Oct2023.shp");
     geometry shape <- envelope(shape_file_bounds);
-    float step <- 0.3 #mn;
+    float step <- 0.2 #mn;
     date starting_date <- date("2019-09-01-00-00-00");
       
 	
@@ -21,8 +21,8 @@ global {
     int nb_females_0_4 <- 3;
     
     //counter[0] = 0_4 age , counter[1] = 5_9 age, counter[2] = 10_14 age, counter[3] = 15_19 age, counter[4] = 0_4 age. 
-    list males<-[1,2,3,4];
-    list females<-[1,2,3,4];
+	list males<-[94,130,95,138,120,141,162,225,195,218,193,192,183,125,147,266];
+    list females<-[91,102,109,119,124,164,162,201,196,201,207,199,189,148,163,395];
     
     int nb_people_m <- 30;  // Number of female people
     int nb_people_f <- 30;  // Number of female people
@@ -36,25 +36,27 @@ global {
 
     init {
         create building from: shape_file_buildings with: [type::string(read ("NATURE"))] {
-        	bool var0 <- flip (0.3);
+        	bool var0 <- flip (0.8);
         	//type = flip("Residential","Industrial");
             if var0 {
-                color <- #blue;
+                color <- #gray;
                 type <- "Residential";
             }else{
-        	   color <- #gray;
+        	   color <- #blue;
         	   type <- "Industrial";
             }
         }
         create road from: shape_file_roads;
         map<road, float> weights_map <- road as_map(each::(each.destruction_coeff * each.shape.perimeter));
-        the_graph <- as_edge_graph(road,50) with_weights weights_map;
+        the_graph <- as_edge_graph(road,40) with_weights weights_map;
 
         list<building> residential_buildings <- building where (each.type="Residential");
         list<building> industrial_buildings <- building where (each.type="Industrial");
+		list<building> other_residential <- building where (each.name = "building0" or each.name = "building1" or each.name = "building2");
 		
-		loop i from: 0 to: 20{
-	       	create people number: i {
+		
+		loop i from: 0 to: length(males)-1{
+	       	create people number: males[i] {
 	            color <- #red;
 	            speed <- rnd(min_speed, max_speed);
 	            start_work <- rnd(min_work_start, max_work_start);
@@ -68,8 +70,8 @@ global {
     		}
    	    }
    	    		//loop i over:females{
-		loop i from: 0 to: 20{
-	       	create people number: i {
+		loop i from: 0 to: length(females)-1{
+	       	create people number: females[i] {
 	            color <- #pink;
 	            speed <- rnd(min_speed, max_speed);
 	            start_work <- rnd(min_work_start, max_work_start);
@@ -108,6 +110,7 @@ species road {
 }
 
 species people skills:[moving] {
+	int id <- int(self);
     rgb color <- #blue;
     building living_place <- nil;
     building working_place <- nil;
@@ -118,11 +121,20 @@ species people skills:[moving] {
     float size;
 
     // Set age-specific attributes
+	reflex time_to_work when: current_date.hour = start_work and objective = "resting" {
 
-    reflex time_to_work when: current_date.hour = start_work and objective = "resting" {
-        objective <- "working";
-        the_target <- any_location_in(working_place);
+        if flip(0.8){
+            objective <- "working";
+            the_target <- any_location_in(working_place);
+        }else if flip(0.5){
+            the_target <- nil;
+        }else{
+            objective <- "working";
+            the_target <- any_location_in(living_place);
+        }
     }
+
+
 
     reflex time_to_go_home when: current_date.hour = end_work and objective = "working" {
         objective <- "resting";

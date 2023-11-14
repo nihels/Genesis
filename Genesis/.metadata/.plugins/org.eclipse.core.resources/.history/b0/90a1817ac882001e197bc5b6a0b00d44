@@ -9,25 +9,23 @@
 model Genesis
 import "Variabili.gaml"
 global {
-    file shape_file_buildings <- file("../includes/Tutorials/building.shp");
-    file shape_file_roads <- file("../includes/Tutorials/road.shp");
-    file shape_file_bounds <- file("../includes/Tutorials/bounds.shp");
+	file shape_file_buildings <- file("../includes/Oct2023.shp");
+    file shape_file_roads <- file("../includes/PRoads.shp");
+    file shape_file_bounds <- file("../includes/Oct2023.shp");
     geometry shape <- envelope(shape_file_bounds);
-    float step <- 0.3 #mn;
+    float step <- 0.2 #mn;
     date starting_date <- date("2019-09-01-00-00-00");
       
+	
+
     int nb_females_0_4 <- 3;
     
     //counter[0] = 0_4 age , counter[1] = 5_9 age, counter[2] = 10_14 age, counter[3] = 15_19 age, counter[4] = 0_4 age. 
-    list males<-[1,2,3,4];
-    list females<-[1,2,3,4];
+	list males<-[94,130,95,138,120,141,162,225,195,218,193,192,183,125,147,266];
+    list females<-[91,102,109,119,124,164,162,201,196,201,207,199,189,148,163,395];
     
-    
-    
-    int counter_f_0_4 <- 0;
-    
-    
-    int nb_people_f <- 20;  // Number of female people
+    int nb_people_m <- 30;  // Number of female people
+    int nb_people_f <- 30;  // Number of female people
     int min_work_start <- 6;
     int max_work_start <- 8;
     int min_work_end <- 16;
@@ -38,20 +36,28 @@ global {
 
     init {
         create building from: shape_file_buildings with: [type::string(read ("NATURE"))] {
-            if type="Industrial" {
+        	bool var0 <- flip (0.3);
+        	//type = flip("Residential","Industrial");
+            if var0 {
                 color <- #blue;
+                type <- "Residential";
+            }else{
+        	   color <- #gray;
+        	   type <- "Industrial";
             }
         }
         create road from: shape_file_roads;
         map<road, float> weights_map <- road as_map(each::(each.destruction_coeff * each.shape.perimeter));
-        the_graph <- as_edge_graph(road) with_weights weights_map;
+        the_graph <- as_edge_graph(road,40) with_weights weights_map;
 
         list<building> residential_buildings <- building where (each.type="Residential");
         list<building> industrial_buildings <- building where (each.type="Industrial");
+		list<building> other_residential <- building where (each.name = "building0" or each.name = "building1" or each.name = "building2");
 		
-		loop i over:males{
+		
+		loop i from: 0 to: 20{
 	       	create people number: i {
-	            color <- #blue;
+	            color <- #red;
 	            speed <- rnd(min_speed, max_speed);
 	            start_work <- rnd(min_work_start, max_work_start);
 	            end_work <- rnd(min_work_end, max_work_end);
@@ -60,7 +66,22 @@ global {
 	            objective <- "resting";
 	            location <- any_location_in(living_place);
 	        	
-	        	size <- i*1.5;
+	        	size <-  5;
+    		}
+   	    }
+   	    		//loop i over:females{
+		loop i from: 0 to: 20{
+	       	create people number: i {
+	            color <- #pink;
+	            speed <- rnd(min_speed, max_speed);
+	            start_work <- rnd(min_work_start, max_work_start);
+	            end_work <- rnd(min_work_end, max_work_end);
+	            living_place <- one_of(residential_buildings);
+	            working_place <- one_of(industrial_buildings);
+	            objective <- "resting";
+	            location <- any_location_in(living_place);
+	  
+	        	size <- 5;
     		}
    	    }
 	}
@@ -80,15 +101,16 @@ species building {
 
 species road {
     float destruction_coeff <- rnd(1.0, 2.0) max: 2.0;
-    int colorValue <- int(255 * (destruction_coeff - 1)) update: int(255 * (destruction_coeff - 1));
-    rgb color <- rgb(min([255, colorValue]), max([0, 255 - colorValue]), 0) update: rgb(min([255, colorValue]), max([0, 255 - colorValue]), 0);
-
+    //int colorValue <- int(255 * (destruction_coeff - 1)) update: int(255 * (destruction_coeff - 1));
+    //rgb color <- rgb(min([255, colorValue]), max([0, 255 - colorValue]), 0) update: rgb(min([255, colorValue]), max([0, 255 - colorValue]), 0);
+	rgb color <- #black;
     aspect base {
         draw shape color: color;
     }
 }
 
 species people skills:[moving] {
+	int id <- int(self);
     rgb color <- #blue;
     building living_place <- nil;
     building working_place <- nil;
@@ -99,6 +121,18 @@ species people skills:[moving] {
     float size;
 
     // Set age-specific attributes
+	reflex time_to_work when: current_date.hour = start_work and objective = "resting" {
+	        if id <= rnd(4000){
+	            objective <- "working";
+	            the_target <- any_location_in(working_place);
+	        }else if id >4100 and id < 4800{
+	            the_target <- nil;
+	        }else{
+	            objective <- "working";
+	            the_target <- any_location_in(residential_buildings);
+	        }
+	    }
+
 
     reflex time_to_work when: current_date.hour = start_work and objective = "resting" {
         objective <- "working";
