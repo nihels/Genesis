@@ -8,9 +8,9 @@
 
 model Variabili
 global {
-    file shape_file_buildings <- file("../includes/building.shp");
-    file shape_file_roads <- file("../includes/road.shp");
-    file shape_file_bounds <- file("../includes/bounds.shp");
+	file shapefile_building <- file("../includes/Oct2023.shp");
+    file shape_file_roads <- file("../includes/rrr.shp");
+    file shape_file_bounds <- file("../includes/Tutorials/bounds.shp");
     geometry shape <- envelope(shape_file_bounds);
     float step <- 0.3 #mn;
     date starting_date <- date("2019-09-01-00-00-00");

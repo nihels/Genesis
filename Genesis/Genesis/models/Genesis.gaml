@@ -8,10 +8,11 @@
 
 
 model Genesis
+import "Variabili.gaml"
 global {
 	file shape_file_buildings <- file("../includes/PopBuild.shp");
-    file shape_file_roads <- file("../includes/RodNov16.shp");
-    file shape_file_bounds <- file("../includes/RodNov16.shp");
+    file shape_file_roads <- file("../includes/PopRod.shp");
+    file shape_file_bounds <- file("../includes/PopRod.shp");
     geometry shape <- envelope(shape_file_bounds);
     float step <- 0.8 #mn;
     date starting_date <- date("2019-09-01-00-00-00");
@@ -74,7 +75,7 @@ global {
             working_place <- one_of(industrial_buildings);
             objective <- "resting";
  			location <- any_location_in(living_place); // Set initial location inside a residential building
- 			//the_target <- any_location_in(one_of(other_residential)); // Corrected variable name
+ 			the_target <- any_location_in(one_of(other_residential)); // Corrected variable name
  			
             size <- 5;
         }
@@ -90,7 +91,7 @@ global {
 	            working_place <- one_of(industrial_buildings);
 	            objective <- "resting";
  				location <- any_location_in(living_place); // Set initial location inside a residential building
- 				// the_target <- any_location_in(one_of(other_residential)); // Corrected variable name
+ 				        the_target <- any_location_in(one_of(other_residential)); // Corrected variable name
  				
  				
  	        	size <- 5;
@@ -122,6 +123,7 @@ species road {
 }
 
 species people skills:[moving] {
+	int id <- int(self);
     rgb color <- #blue;
     building living_place <- nil;
     building working_place <- nil;
@@ -132,31 +134,29 @@ species people skills:[moving] {
     float size;
 
     // Set age-specific attributes
+	reflex time_to_work when: current_date.hour > start_work and objective = "resting" {
 
-    reflex time_to_work when: current_date.hour = start_work and objective = "resting" {
-        objective <- "working";
-        the_target <- any_location_in(working_place);
+        if flip(0.8){
+            objective <- "working";
+            the_target <- any_location_in(one_of(industrial_buildings));
+        }else if flip(0.5){
+    	    objective <- "resting";
+            the_target <- nil;
+        }else{
+            objective <- "working";
+            the_target <- any_location_in(one_of(residential_buildings));
+        }
     }
 
-    reflex time_to_go_home when: current_date.hour = end_work and objective = "working" {
+
+
+    reflex time_to_go_home when: current_date.hour > end_work and objective = "working" {
         objective <- "resting";
         the_target <- any_location_in(living_place);
     }
 
-    reflex move when: the_target != nil {
-        path path_followed <- goto(target: the_target, on: the_graph, return_path: true);
-        list<geometry> segments <- path_followed.segments;
-        loop line over: segments {
-            float dist <- line.perimeter;
-            
-        }
-        if the_target = location {
-            the_target <- nil;
-        }
-    }
-
  
- /* 
+    
      reflex move when: the_target != nil {
     if (location = the_target) {
         the_target <- nil;
@@ -167,7 +167,7 @@ species people skills:[moving] {
 
 
 
-} */  
+}
 
 
 
