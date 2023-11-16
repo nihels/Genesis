@@ -73,12 +73,12 @@
       <tags>categoryTag:General</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_ARWUsIRsEe6afLZix6-w5A" elementId="org.eclipse.ui.editorss" selectedElement="_ARW7wIRsEe6afLZix6-w5A">
-      <children xsi:type="basic:PartStack" xmi:id="_ARW7wIRsEe6afLZix6-w5A" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_RnAHAIRuEe6jQvnPL4ivhg">
+      <children xsi:type="basic:PartStack" xmi:id="_ARW7wIRsEe6afLZix6-w5A" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_jT1YUIRyEe6Jyo0kVJ02vA">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
-        <children xsi:type="basic:Part" xmi:id="_RnAHAIRuEe6jQvnPL4ivhg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Genesis.gaml" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Genesis.gaml&quot; partName=&quot;Genesis.gaml&quot; title=&quot;Genesis.gaml&quot; tooltip=&quot;Genesis/Genesis/models/Genesis.gaml&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Genesis/Genesis/models/Genesis.gaml&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;174&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+        <children xsi:type="basic:Part" xmi:id="_jT1YUIRyEe6Jyo0kVJ02vA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Genesis.gaml" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Genesis.gaml&quot; partName=&quot;Genesis.gaml&quot; title=&quot;Genesis.gaml&quot; tooltip=&quot;Genesis/Genesis/models/Genesis.gaml&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Genesis/Genesis/models/Genesis.gaml&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;97&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>msi.gama.lang.gaml.Gaml</tags>
@@ -90,7 +90,7 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_ARfeoIRsEe6afLZix6-w5A" elementId="msi.gama.gui.view.GamaNavigator" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Models" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.navigator.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.ui.navigator.GamaNavigator"/>
       <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.ui.navigator"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; EXPANDED_STATE=&quot;User models@@/Genesis@@/Genesis/Genesis@@/Genesis/Genesis/models&quot;>&#xA;&lt;lastRecentlyUsedFilters/>&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; EXPANDED_STATE=&quot;User models@@/Genesis@@/Genesis/Genesis@@/Genesis/Genesis/includes@@/Genesis/Genesis/models&quot;>&#xA;&lt;lastRecentlyUsedFilters/>&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:Gama</tags>
       <tags>activeOnClose</tags>
@@ -876,7 +876,7 @@
     <bindings xmi:id="__wXukIRrEe6afLZix6-w5A" keySequence="COMMAND+INSERT" command="__vXpBYRrEe6afLZix6-w5A"/>
   </bindingTables>
   <bindingTables xmi:id="__1QOloRrEe6afLZix6-w5A" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" bindingContext="__uGdvYRrEe6afLZix6-w5A">
-    <bindings xmi:id="_jL650IRvEe6nAKM2rmoUVQ" keySequence="M1+W" command="__1QOlIRrEe6afLZix6-w5A"/>
+    <bindings xmi:id="_awWUUIRyEe6Jyo0kVJ02vA" keySequence="M1+W" command="__1QOlIRrEe6afLZix6-w5A"/>
   </bindingTables>
   <bindingTables xmi:id="_ARZYAYRsEe6afLZix6-w5A" bindingContext="_ARZYAIRsEe6afLZix6-w5A"/>
   <bindingTables xmi:id="_ARZ_EYRsEe6afLZix6-w5A" bindingContext="_ARZ_EIRsEe6afLZix6-w5A"/>
@@ -1514,7 +1514,7 @@
   <addons xmi:id="__uGdxoRrEe6afLZix6-w5A" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="__uGdx4RrEe6afLZix6-w5A" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="__uT5EIRrEe6afLZix6-w5A" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_jLYuUIRvEe6nAKM2rmoUVQ" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <addons xmi:id="__1PngIRrEe6afLZix6-w5A" elementId="org.eclipse.e4.ui.workbench.renderers.swt.cocoa.CocoaUIHandler" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.cocoa.CocoaUIHandler"/>
   <categories xmi:id="__vRiYIRrEe6afLZix6-w5A" elementId="org.eclipse.team.ui.category.team" name="Version control (Team)" description="Actions that apply when working with a version control system"/>
