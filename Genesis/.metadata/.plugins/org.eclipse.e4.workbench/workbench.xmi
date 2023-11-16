@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_BhdGYXyEEe6WAah5LqmrJA" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_BhdGYnyEEe6WAah5LqmrJA" bindingContexts="_BhdGa3yEEe6WAah5LqmrJA">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;msi.gama.application.browser&quot; name=&quot;welcome.html&quot; tooltip=&quot;C:\Users\SaiYeshwanthChavala\AppData\Local\Programs\Gama\plugins\ummisco.gama.ui.shared_1.9.1.202304150802\welcome\light\welcome.html&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/SaiYeshwanthChavala/AppData/Local/Programs/Gama/plugins/ummisco.gama.ui.shared_1.9.1.202304150802/welcome/light/welcome.html&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;msi.gama.application.browser&quot; name=&quot;welcome.html&quot; tooltip=&quot;C:\Users\DiegoSaitta\AppData\Local\Programs\Gama\plugins\ummisco.gama.ui.shared_1.9.2.202309031322\welcome\light\welcome.html&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/DiegoSaitta/AppData/Local/Programs/Gama/plugins/ummisco.gama.ui.shared_1.9.2.202309031322/welcome/light/welcome.html&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Genesis.gaml&quot; tooltip=&quot;Genesis/models/Genesis.gaml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/models/Genesis.gaml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Variabili.gaml&quot; tooltip=&quot;Genesis/models/Variabili.gaml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/models/Variabili.gaml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Demo.experiment&quot; tooltip=&quot;Genesis/models/Demo.experiment&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/models/Demo.experiment&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.application.shape.viewer&quot; name=&quot;bounds.shp&quot; tooltip=&quot;Genesis/includes/Tutorials/bounds.shp&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/includes/Tutorials/bounds.shp&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;CityEscape_BDI_Emotions.gaml&quot; tooltip=&quot;Genesis/models/CityEscape_BDI_Emotions.gaml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/models/CityEscape_BDI_Emotions.gaml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;New Model.gaml&quot; tooltip=&quot;Genesis/models/New Model.gaml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/models/New Model.gaml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;New Model.gaml&quot; tooltip=&quot;Data/models/New Model.gaml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Data/models/New Model.gaml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Genesis.gaml&quot; tooltip=&quot;Genesis/models/Genesis.gaml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/models/Genesis.gaml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;New Model.gaml&quot; tooltip=&quot;Genesis/models/New Model.gaml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/models/New Model.gaml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Model 07.gaml&quot; tooltip=&quot;Genesis/models/Model 07.gaml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/models/Model 07.gaml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;msi.gama.application.browser&quot; name=&quot;welcome.html&quot; tooltip=&quot;C:\Users\DiegoSaitta\AppData\Local\Programs\Gama\plugins\ummisco.gama.ui.shared_1.9.2.202309031322\welcome\light\welcome.html&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/DiegoSaitta/AppData/Local/Programs/Gama/plugins/ummisco.gama.ui.shared_1.9.2.202309031322/welcome/light/welcome.html&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;msi.gama.application.browser&quot; name=&quot;welcome.html&quot; tooltip=&quot;C:\Users\SaiYeshwanthChavala\AppData\Local\Programs\Gama\plugins\ummisco.gama.ui.shared_1.9.1.202304150802\welcome\light\welcome.html&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/SaiYeshwanthChavala/AppData/Local/Programs/Gama/plugins/ummisco.gama.ui.shared_1.9.1.202304150802/welcome/light/welcome.html&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Variabili.gaml&quot; tooltip=&quot;Genesis/models/Variabili.gaml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/models/Variabili.gaml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Demo.experiment&quot; tooltip=&quot;Genesis/models/Demo.experiment&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/models/Demo.experiment&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.application.shape.viewer&quot; name=&quot;bounds.shp&quot; tooltip=&quot;Genesis/includes/Tutorials/bounds.shp&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/includes/Tutorials/bounds.shp&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;CityEscape_BDI_Emotions.gaml&quot; tooltip=&quot;Genesis/models/CityEscape_BDI_Emotions.gaml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Genesis/models/CityEscape_BDI_Emotions.gaml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;New Model.gaml&quot; tooltip=&quot;Data/models/New Model.gaml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Data/models/New Model.gaml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_BhdGYnyEEe6WAah5LqmrJA" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_Bt8qQXyEEe6WAah5LqmrJA" x="2120" y="-19" width="1024" height="768">
     <persistedState key="coolBarVisible" value="true"/>
@@ -73,54 +73,36 @@
       <tags>categoryTag:General</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_Bvx2V3yEEe6WAah5LqmrJA" elementId="org.eclipse.ui.editorss" selectedElement="_Bvx2WHyEEe6WAah5LqmrJA">
-      <children xsi:type="basic:PartStack" xmi:id="_Bvx2WHyEEe6WAah5LqmrJA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_eZdn4II0Ee6YoslOwtOOMg">
+      <children xsi:type="basic:PartStack" xmi:id="_Bvx2WHyEEe6WAah5LqmrJA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_3pj4IIRuEe6aI_-RQEtmXQ">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
-        <children xsi:type="basic:Part" xmi:id="_eZdn4II0Ee6YoslOwtOOMg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Genesis.gaml" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Genesis.gaml&quot; partName=&quot;Genesis.gaml&quot; title=&quot;Genesis.gaml&quot; tooltip=&quot;Genesis/models/Genesis.gaml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Genesis/models/Genesis.gaml&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+        <children xsi:type="basic:Part" xmi:id="_0kEG0IRuEe6aI_-RQEtmXQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="New Model.gaml" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;New Model.gaml&quot; partName=&quot;New Model.gaml&quot; title=&quot;New Model.gaml&quot; tooltip=&quot;Genesis/models/New Model.gaml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Genesis/models/New Model.gaml&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;236&quot; selectionTopPixel=&quot;1059&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>msi.gama.lang.gaml.Gaml</tags>
-          <tags>activeOnClose</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_2C8foIRuEe6aI_-RQEtmXQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Model 07.gaml" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Model 07.gaml&quot; partName=&quot;Model 07.gaml&quot; title=&quot;Model 07.gaml&quot; tooltip=&quot;Genesis/models/Model 07.gaml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Genesis/models/Model 07.gaml&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>removeOnHide</tags>
+          <tags>msi.gama.lang.gaml.Gaml</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_3pj4IIRuEe6aI_-RQEtmXQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Genesis.gaml" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Genesis.gaml&quot; partName=&quot;Genesis.gaml&quot; title=&quot;Genesis.gaml&quot; tooltip=&quot;Genesis/models/Genesis.gaml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Genesis/models/Genesis.gaml&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;6521&quot; selectionTopPixel=&quot;2776&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>removeOnHide</tags>
+          <tags>msi.gama.lang.gaml.Gaml</tags>
           <tags>active</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_pwPS4II0Ee6YoslOwtOOMg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Demo.experiment" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Demo.experiment&quot; partName=&quot;Demo.experiment&quot; title=&quot;Demo.experiment&quot; tooltip=&quot;Genesis/models/Demo.experiment&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Genesis/models/Demo.experiment&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>removeOnHide</tags>
-          <tags>msi.gama.lang.gaml.Gaml</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_Eo3lYII5Ee6YoslOwtOOMg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Variabili.gaml" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;msi.gama.lang.gaml.Gaml&quot; name=&quot;Variabili.gaml&quot; partName=&quot;Variabili.gaml&quot; title=&quot;Variabili.gaml&quot; tooltip=&quot;Genesis/models/Variabili.gaml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Genesis/models/Variabili.gaml&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;326&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>removeOnHide</tags>
-          <tags>msi.gama.lang.gaml.Gaml</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_alo-sII5Ee6YoslOwtOOMg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="bounds.shp" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/navigator/files/file.shape.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;msi.gama.application.shape.viewer&quot; name=&quot;bounds.shp&quot; partName=&quot;bounds.shp&quot; title=&quot;bounds.shp&quot; tooltip=&quot;Genesis/includes/Tutorials/bounds.shp&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Genesis/includes/Tutorials/bounds.shp&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>removeOnHide</tags>
-          <tags>msi.gama.application.shape.viewer</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_tjpf0IJEEe6e-668q7xm0g" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="welcome.html" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/navigator/files/file.html.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;msi.gama.application.browser&quot; name=&quot;welcome.html&quot; partName=&quot;welcome.html&quot; title=&quot;welcome.html&quot; tooltip=&quot;C:\Users\DiegoSaitta\AppData\Local\Programs\Gama\plugins\ummisco.gama.ui.shared_1.9.2.202309031322\welcome\light\welcome.html&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/DiegoSaitta/AppData/Local/Programs/Gama/plugins/ummisco.gama.ui.shared_1.9.2.202309031322/welcome/light/welcome.html&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>removeOnHide</tags>
-          <tags>msi.gama.application.browser</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_yLoOwILMEe6ENvFTYEHkdg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="welcome.html" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/navigator/files/file.html.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;msi.gama.application.browser&quot; name=&quot;welcome.html&quot; partName=&quot;welcome.html&quot; title=&quot;welcome.html&quot; tooltip=&quot;C:\Users\SaiYeshwanthChavala\AppData\Local\Programs\Gama\plugins\ummisco.gama.ui.shared_1.9.1.202304150802\welcome\light\welcome.html&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/SaiYeshwanthChavala/AppData/Local/Programs/Gama/plugins/ummisco.gama.ui.shared_1.9.1.202304150802/welcome/light/welcome.html&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>removeOnHide</tags>
-          <tags>msi.gama.application.browser</tags>
+          <tags>activeOnClose</tags>
         </children>
       </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_Bv5LAHyEEe6WAah5LqmrJA" elementId="msi.gama.gui.view.GamaNavigator" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Models" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.navigator.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.ui.navigator.GamaNavigator"/>
       <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.ui.navigator"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; EXPANDED_STATE=&quot;User models&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; EXPANDED_STATE=&quot;User models@@/Genesis@@/Genesis/models&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:Gama</tags>
       <menus xmi:id="_BxP14HyEEe6WAah5LqmrJA" elementId="msi.gama.gui.view.GamaNavigator">
@@ -138,7 +120,7 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_Bv5LAnyEEe6WAah5LqmrJA" elementId="msi.gama.application.problems" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Validation" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.problems.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.ui.views.SyntaxErrorsView"/>
       <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.ui.modeling"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;msi.gama.lang.gaml.ui.description.field&quot; categoryGroup=&quot;org.eclipse.ui.ide.allMarkers.severity&quot; markerContentGenerator=&quot;msi.gama.lang.gaml.ui.error.generator&quot; partName=&quot;Validation&quot;>&#xD;&#xA;&lt;columnWidths msi.gama.lang.gaml.ui.description.field=&quot;300&quot; msi.gama.lang.gaml.ui.project.field=&quot;90&quot; org.eclipse.ui.ide.locationField=&quot;90&quot; org.eclipse.ui.ide.resourceField=&quot;90&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;msi.gama.lang.gaml.ui.description.field&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;msi.gama.lang.gaml.ui.project.field&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;msi.gama.lang.gaml.ui.description.field&quot; categoryGroup=&quot;org.eclipse.ui.ide.allMarkers.severity&quot; markerContentGenerator=&quot;msi.gama.lang.gaml.ui.error.generator&quot; partName=&quot;Validation&quot;>&#xD;&#xA;&lt;expanded>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Warnings (4 items)&quot;/>&#xD;&#xA;&lt;/expanded>&#xD;&#xA;&lt;columnWidths msi.gama.lang.gaml.ui.description.field=&quot;300&quot; msi.gama.lang.gaml.ui.project.field=&quot;90&quot; org.eclipse.ui.ide.locationField=&quot;90&quot; org.eclipse.ui.ide.resourceField=&quot;90&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;msi.gama.lang.gaml.ui.description.field&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;msi.gama.lang.gaml.ui.project.field&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:Gama</tags>
       <menus xmi:id="_BzqQsHyEEe6WAah5LqmrJA" elementId="msi.gama.application.problems">
@@ -2262,6 +2244,142 @@
       </menus>
       <toolbar xmi:id="_JW2qIYLLEe6LjaHyLUp7Pg" elementId="msi.gama.application.view.OpenGLDisplayView" visible="false"/>
     </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="__G0T4IRuEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.LayeredDisplayView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Display" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.java2d"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.java2d.AWTDisplayView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="__G0T4YRuEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="3D" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.opengl"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.opengl.view.OpenGLDisplayView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="__G0T4oRuEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.TableAgentInspectView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Browser" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.browser.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.ui.experiment"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.ui.views.inspectors.PopulationInspectView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="__Q1ykIRuEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView:city_display@@@1700132272184" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="city_display" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.opengl"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.opengl.view.OpenGLDisplayView"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+      <menus xmi:id="__RItgIRuEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="__RItgYRuEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView" visible="false"/>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_ihpYUIRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.LayeredDisplayView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Display" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.java2d"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.java2d.AWTDisplayView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_ihpYUYRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="3D" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.opengl"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.opengl.view.OpenGLDisplayView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_ihpYUoRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.TableAgentInspectView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Browser" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.browser.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.ui.experiment"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.ui.views.inspectors.PopulationInspectView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_inb3QIRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView:city_display@@@1700132938931" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="city_display" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.opengl"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.opengl.view.OpenGLDisplayView"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+      <menus xmi:id="_ingvwIRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_ingvwYRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView" visible="false"/>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_thAo4IRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.LayeredDisplayView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Display" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.java2d"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.java2d.AWTDisplayView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_thBP8IRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="3D" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.opengl"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.opengl.view.OpenGLDisplayView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_thBP8YRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.TableAgentInspectView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Browser" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.browser.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.ui.experiment"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.ui.views.inspectors.PopulationInspectView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_tmC54IRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView:city_display@@@1700133012606" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="city_display" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.opengl"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.opengl.view.OpenGLDisplayView"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+      <menus xmi:id="_tmJAgIRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_tmJAgYRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView" visible="false"/>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_xTRZkIRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.LayeredDisplayView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Display" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.java2d"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.java2d.AWTDisplayView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_xTRZkYRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="3D" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.opengl"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.opengl.view.OpenGLDisplayView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_xTRZkoRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.TableAgentInspectView:*" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Browser" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.browser.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.ui.experiment"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.ui.views.inspectors.PopulationInspectView"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_xX6pAIRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView:city_display@@@1700133037968" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="city_display" iconURI="platform:/plugin/ummisco.gama.ui.shared/icons/views/tabs/view.display.png" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="ummisco.gama.opengl"/>
+      <persistedState key="originalCompatibilityViewClass" value="ummisco.gama.opengl.view.OpenGLDisplayView"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
+      <tags>View</tags>
+      <tags>categoryTag:Gama</tags>
+      <tags>NoRestore</tags>
+      <menus xmi:id="_xYAIkIRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_xYAIkYRwEe6aI_-RQEtmXQ" elementId="msi.gama.application.view.OpenGLDisplayView" visible="false"/>
+    </sharedElements>
     <trimBars xmi:id="_BhdGY3yEEe6WAah5LqmrJA" elementId="org.eclipse.ui.main.toolbar" contributorURI="platform:/plugin/org.eclipse.ui.workbench">
       <children xsi:type="menu:ToolBar" xmi:id="_Bu2CIHyEEe6WAah5LqmrJA" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -2388,6 +2506,7 @@
     <bindings xmi:id="_BiH00nyEEe6WAah5LqmrJA" keySequence="F12" command="_BhuzY3yEEe6WAah5LqmrJA"/>
     <bindings xmi:id="_BiH013yEEe6WAah5LqmrJA" keySequence="F2" command="_BhxPdnyEEe6WAah5LqmrJA"/>
     <bindings xmi:id="_BiH023yEEe6WAah5LqmrJA" keySequence="F5" command="_BhxPpnyEEe6WAah5LqmrJA"/>
+    <bindings xmi:id="_f8lsgYRuEe6aI_-RQEtmXQ" keySequence="CTRL+SHIFT+D" command="_BhuzOnyEEe6WAah5LqmrJA"/>
   </bindingTables>
   <bindingTables xmi:id="_BiAgAnyEEe6WAah5LqmrJA" elementId="org.eclipse.ui.textEditorScope" bindingContext="_Bhzrs3yEEe6WAah5LqmrJA">
     <bindings xmi:id="_BiAgA3yEEe6WAah5LqmrJA" keySequence="ALT+CTRL+ARROW_UP" command="_BhxQGnyEEe6WAah5LqmrJA"/>
@@ -2758,7 +2877,7 @@
   </trimContributions>
   <commands xmi:id="_BhtlFHyEEe6WAah5LqmrJA" elementId="org.eclipse.ui.window.pinEditor" commandName="Pin Editor" description="Pin the current editor" category="_BhtlEHyEEe6WAah5LqmrJA"/>
   <commands xmi:id="_BhtlFXyEEe6WAah5LqmrJA" elementId="org.eclipse.ui.navigate.nextTab" commandName="Next Tab" description="Switch to the next tab" category="_BhsW-3yEEe6WAah5LqmrJA"/>
-  <commands xmi:id="_BhtlFnyEEe6WAah5LqmrJA" elementId="ummisco.command.clean.build" commandName="Clean and build all models" category="_BhtlEnyEEe6WAah5LqmrJA"/>
+  <commands xmi:id="_BhtlFnyEEe6WAah5LqmrJA" elementId="ummisco.command.clean.build" commandName="Clean and Build All" category="_BhtlEnyEEe6WAah5LqmrJA"/>
   <commands xmi:id="_BhtlF3yEEe6WAah5LqmrJA" elementId="org.eclipse.ui.window.quickAccess" commandName="Find Actions" description="Quickly access UI elements" category="_BhtlEHyEEe6WAah5LqmrJA"/>
   <commands xmi:id="_BhtlGHyEEe6WAah5LqmrJA" elementId="org.eclipse.ui.edit.text.showInformation" commandName="Show Tooltip Description" description="Displays information for the current caret location in a focused hover" category="_BhsW9nyEEe6WAah5LqmrJA"/>
   <commands xmi:id="_BhtlGXyEEe6WAah5LqmrJA" elementId="org.eclipse.ui.edit.text.select.pageUp" commandName="Select Page Up" description="Select to the top of the page" category="_BhsW9nyEEe6WAah5LqmrJA"/>
@@ -2783,7 +2902,7 @@
     <parameters xmi:id="_BhuzOHyEEe6WAah5LqmrJA" elementId="preferencePageId" name="Preference Page"/>
   </commands>
   <commands xmi:id="_BhuzOXyEEe6WAah5LqmrJA" elementId="org.eclipse.ui.edit.text.showRulerAnnotationInformation" commandName="Show Ruler Annotation Tooltip" description="Displays annotation information for the caret line in a focused hover" category="_BhsW9nyEEe6WAah5LqmrJA"/>
-  <commands xmi:id="_BhuzOnyEEe6WAah5LqmrJA" elementId="msi.gama.application.command.web" commandName="Welcome page" category="_BhsW-HyEEe6WAah5LqmrJA"/>
+  <commands xmi:id="_BhuzOnyEEe6WAah5LqmrJA" elementId="msi.gama.application.command.web" commandName="Documentation" category="_BhsW-HyEEe6WAah5LqmrJA"/>
   <commands xmi:id="_BhuzO3yEEe6WAah5LqmrJA" elementId="org.eclipse.ui.edit.text.delimiter.unix" commandName="Convert Line Delimiters to Unix (LF, \n, 0A, &#xb6;)" description="Converts the line delimiters to Unix (LF, \n, 0A, &#xb6;)" category="_BhsW_XyEEe6WAah5LqmrJA"/>
   <commands xmi:id="_BhuzPHyEEe6WAah5LqmrJA" elementId="org.eclipse.ui.browser.openBrowser" commandName="Open Browser" description="Opens the default web browser." category="_BhtlEHyEEe6WAah5LqmrJA">
     <parameters xmi:id="_BhuzPXyEEe6WAah5LqmrJA" elementId="url" name="URL"/>
@@ -3129,7 +3248,7 @@
   <addons xmi:id="_BhdGd3yEEe6WAah5LqmrJA" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_BhdGeHyEEe6WAah5LqmrJA" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_BhdGeXyEEe6WAah5LqmrJA" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_x14oQYLMEe6ENvFTYEHkdg" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_BhsW8HyEEe6WAah5LqmrJA" elementId="org.eclipse.team.ui.category.team" name="Version control (Team)" description="Actions that apply when working with a version control system"/>
   <categories xmi:id="_BhsW8XyEEe6WAah5LqmrJA" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
