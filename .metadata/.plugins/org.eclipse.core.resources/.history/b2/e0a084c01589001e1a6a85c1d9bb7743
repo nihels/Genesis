@@ -1,0 +1,8 @@
+model Genesis_all
+
+global
+{
+		file shape_file_buildings <- file("../includes/PopBuild.shp");
+    	file shape_file_roads <- file("../includes/RodNov16.shp");
+    	
+}
