@@ -256,7 +256,7 @@ species people skills:[moving] {
         loop line over: segments {
             float dist <- line.perimeter;
         }
-        if(personal_car.location = location){
+        if(car_target = location){
         	personal_car.people_in <- personal_car.people_in +1;
         	personal_car.driver_target <- the_target; 
         }

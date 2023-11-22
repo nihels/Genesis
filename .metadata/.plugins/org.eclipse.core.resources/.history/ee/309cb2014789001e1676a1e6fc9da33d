@@ -42,7 +42,6 @@ global {
 	list<building> other_residential;
 	list<car> cars;
 	list<point> checkpoint;
-	int count_people <- 0;
 	
 	init {
         create building from: shape_file_buildings with: [type::string(read("NATURE"))] {
@@ -67,18 +66,22 @@ global {
         map<road, float> weights_map <- road as_map(each::(each.destruction_coeff * each.shape.perimeter));
         the_graph <- as_edge_graph(road,70) with_weights weights_map;
 	    
-		create car number: 86 {
+		create car number: 2 {
    	    	location <-  one_of(the_graph);
    	    	cars <- car;
    	    }
    	    
+   	    //loop i from:0 to:5 {
+   	    		
+   	    	//}
+   	    
    	    create bus number: 1 {
-   	    	 /*
+   	    	// /*
    	    	checkpoint[0] <- one_of(the_graph);
    	    	checkpoint[1] <- one_of(the_graph);
    	    	checkpoint[2] <- one_of(the_graph);
    	    	checkpoint[3] <- one_of(the_graph);
-   	    	  */
+   	    	 // */
    	    	
    	    	location <- checkpoint[0];
    	    	next_checkpoint <- checkpoint[1];
@@ -94,10 +97,10 @@ global {
 	            working_place <- one_of(industrial_buildings);
 	            objective <- "resting";
 	 			location <- any_location_in(living_place); // Set initial location inside a residential building
-	 			personal_car <- cars[count_people];
-	 			car_target <- personal_car.location;
+	 			//the_target <- any_location_in(one_of(other_residential)); // Corrected variable name
+	 				personal_car <- one_of(cars);
+	 			car_target <- any_location_in(personal_car);
 	 			
-	 			count_people <- count_people+1;
 	            size <- 5;
 	        }
 	    }
@@ -112,18 +115,13 @@ global {
 	            working_place <- one_of(industrial_buildings);
 	            objective <- "resting";
  				location <- any_location_in(living_place); // Set initial location inside a residential building
- 				personal_car <- cars[count_people];
- 				car_target <- personal_car.location;
+ 				// the_target <- any_location_in(one_of(other_residential)); // Corrected variable name
+ 				personal_car <- one_of(cars);
+ 				car_target <- any_location_in(personal_car);
  				
- 				count_people <- count_people+1;
  	        	size <- 5;
     		}
    	    }
-   	    /* 
-   	    loop i from:0 to:length(cars) {
-   	    	one_of(people)
-   	    }
-   	    */
 	}
 }
 
@@ -237,7 +235,8 @@ species people skills:[moving] {
         the_target <- any_location_in(living_place);
     }
 
- 	reflex move when: the_target != nil and personal_car=nil {
+/*
+ 	reflex move when: the_target != nil {
         path path_followed <- goto(target: the_target, on: the_graph, return_path: true);
         list<geometry> segments <- path_followed.segments;
         loop line over: segments {
@@ -248,19 +247,37 @@ species people skills:[moving] {
             the_target <- nil;
         }
     }
+ */
     
     //move the people in their car
-    reflex move_to_car when: personal_car!=nil {
+    reflex move {
         path path_followed <- goto(target: personal_car.location, on: the_graph, return_path: true);
         list<geometry> segments <- path_followed.segments;
         loop line over: segments {
             float dist <- line.perimeter;
+            
         }
-        if(personal_car.location = location){
+        if(car_target = location){
         	personal_car.people_in <- personal_car.people_in +1;
-        	personal_car.driver_target <- the_target; 
+        	personal_car.driver_target <- living_place; 
         }
     }
+
+ 
+ /* 
+     reflex move when: the_target != nil {
+    if (location = the_target) {
+        the_target <- nil;
+        objective <- "arrived";
+    } else {
+        do goto(target: the_target, on: the_graph, return_path: false);
+    }
+
+
+
+} */  
+
+
 
     aspect base {
         draw circle(size) color: color border: #black;
