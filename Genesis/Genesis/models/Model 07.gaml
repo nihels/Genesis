@@ -38,6 +38,7 @@ global {
 		
 		list<building> residential_buildings <- building where (each.type="Residential");
 		list<building> industrial_buildings <- building  where (each.type="Industrial") ;
+		
 		create people number: nb_people {
 			speed <- rnd(min_speed, max_speed);
 			start_work <- rnd (min_work_start, max_work_start);
@@ -87,8 +88,7 @@ species people skills:[moving] {
 	int start_work ;
 	int end_work  ;
 	string objective ; 
-	point the_target <- nil ;
-		
+	point the_target <- nil;
 	reflex time_to_work when: current_date.hour = start_work and objective = "resting"{
 		objective <- "working" ;
 		the_target <- any_location_in (working_place);
