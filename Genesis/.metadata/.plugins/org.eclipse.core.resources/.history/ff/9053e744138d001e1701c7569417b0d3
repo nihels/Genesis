@@ -1,0 +1,63 @@
+/**
+* Name: DiegoModel
+* Based on the internal empty template. 
+* Author: DiegoSaitta
+* Tags: 
+*/
+
+
+model DiegoModel
+
+/* Insert your model definition here */
+
+global {
+    // Shared shape files and global variables
+    file shape_file_buildings <- file("../includes/PopBuild.shp");
+    file shape_file_roads <- file("../includes/FinRod1.shp");
+    file nodes_shape_file <- shape_file("../includes/finalnodes.shp");
+    geometry shape <- envelope(nodes_shape_file);
+    float step <- 0.10 #mn;
+    date starting_date <- date("2019-09-01-00-00-00");
+    graph pedestrian_network;
+    graph car_network;
+  	list<building> residential_buildings;
+	list<building> industrial_buildings;
+	list<building> other_residential;
+   
+   init{
+    	create road from: shape_file_roads {
+	         create road {
+	                num_lanes <- myself.num_lanes;
+	                shape <- polyline(reverse(myself.shape.points));
+	                maxspeed <- myself.maxspeed;
+	                linked_road <- myself;
+	                myself.linked_road <- self;
+            }
+        }
+   	
+   }
+   species building {
+    string type;
+    rgb color <- #red;
+
+    aspect base {
+        draw shape color: color;
+    }
+}
+
+species road skills: [skill_road] {
+    aspect default {
+        draw shape color: #cadetblue;
+   }   
+}
+}
+experiment IntegratedCityExperiment type: gui {
+    output {
+        display city_display type: 3d {
+            species building aspect:base;
+            species road aspect:default;
+            //species people aspect: base;
+          //  species car aspect: base;
+        }
+    }
+}
