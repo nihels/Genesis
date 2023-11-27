@@ -5,31 +5,39 @@
 * Tags: 
 */
 
-
 model Genesis
+
 global {
+    
+    // we import the .shp files
     file shape_file_buildings <- file("../includes/PopBuild (1).shp");
     file shape_file_roads <- file("../includes/finalrod.shp");
     file shape_file_bounds <- file("../includes/finalrod.shp");
+    file nodes_shape_file <- shape_file("../includes/finalnodes.shp");
+    
     geometry shape <- envelope(shape_file_bounds);
     float step <- 0.5 #mn;
     date starting_date <- date("2019-09-01-00-00-00");
+    
     list males<-[94,130,95,138,120,141];
     list females<-[91,102,109,119,124];
-    //list males<-[9,13,20];
-    //list females<-[9,12,23];
-    //int nb_people_m <- 30;  // Number of female people
-    //int nb_people_f <- 30;  // Number of female people
+    
     int min_work_start <- 6;
     int max_work_start <- 8;
     int min_work_end <- 16;
     int max_work_end <- 20;
+    
     float min_speed <- 1.0 #km / #h;
     float max_speed <- 3.0 #km / #h;
+    
     graph the_graph;
+    
+    graph road_network;
+    
     list<building> residential_buildings;
     list<building> industrial_buildings;
     list<building> other_residential;
+   
    init {
         create building from: shape_file_buildings with: [type::string(read("NATURE"))] {
             if (name = "Chiesa di San Lorenzo Martire" or name = "Hotel Le Sorgenti") {
@@ -45,8 +53,18 @@ global {
                 }
             }
         }
-        
-        create road from: shape_file_roads;
+        create intersection from: nodes_shape_file;
+        create road from: shape_file_roads {
+        	create road {
+				//num_lanes <- myself.num_lanes;
+				shape <- polyline(reverse(myself.shape.points));
+				//maxspeed <- myself.maxspeed;
+				//linked_road <- myself;
+				//myself.linked_road <- self;
+			}
+        }
+        road_network <- as_driving_graph(road, intersection);
+        create vehicle number: 1000 with: (location: one_of(intersection).location);
         map<road, float> weights_map <- road as_map(each::(each.destruction_coeff * each.shape.perimeter));
         the_graph <- as_edge_graph(road,50) with_weights weights_map;
 
@@ -82,8 +100,6 @@ global {
                 objective <- "resting";
                 location <- any_location_in(living_place); // Set initial location inside a residential building
                 // the_target <- any_location_in(one_of(other_residential)); // Corrected variable name
-                
-                
                 size <- 5.0;
             }
         }
@@ -97,6 +113,29 @@ species building {
     aspect base {
         draw shape color: color;
     }
+}
+
+species intersection skills: [intersection_skill];
+
+species vehicle skills: [driving] {
+	rgb color <- rnd_color(255);
+	init {
+		vehicle_length <- 1.9 #m;
+		max_speed <- 100 #km / #h;
+		max_acceleration <- 3.5;
+	}
+
+	reflex select_next_path when: current_path = nil {
+		// A path that forms a cycle
+		do compute_path graph: road_network target: one_of(intersection);
+	}
+	
+	reflex commute when: current_path != nil {
+		do drive;
+	}
+	aspect base {
+		draw triangle(5.0) color: color rotate: heading + 90 border: #black;
+	}
 }
 
 species road {

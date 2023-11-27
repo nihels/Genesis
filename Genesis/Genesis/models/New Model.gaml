@@ -1,10 +1,10 @@
 model Genesis
-import "Variabili.gaml"
+//import "Variabili.gaml"
 
 global {
-    file shape_file_buildings <- file("../includes/PopBuild.shp");
-    file shape_file_roads <- file("../includes/PopRod.shp");
-    file shape_file_bounds <- file("../includes/PopBuild.shp");
+    file shape_file_buildings <- file("../includes/PopBuild (1).shp");
+    file shape_file_roads <- file("../includes/finalrod.shp");
+    file shape_file_bounds <- file("../includes/PopBuild (1).shp");
     geometry shape <- envelope(shape_file_bounds);
     float step <- 0.7 #mn;
     date starting_date <- date("2019-09-01-00-00-00");
