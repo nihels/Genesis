@@ -65,7 +65,7 @@ species road skills: [road_skill] {
    }   
 }
 }
-species intersection skills: [intersection_skill] ;
+species intersection skills: [skill_road_node] ;
 
 species car skills: [advanced_driving] {
 	rgb color <- #blue;
