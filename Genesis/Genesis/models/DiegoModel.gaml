@@ -12,13 +12,13 @@ model DiegoModel
 
 global {
 	//strade	
-    file roads_shape_file <- file("../includes/FinRod1.shp");
-    file nodes_shape_file <- shape_file("../includes/finalnodes.shp");
-	//shape_file nodes_shape_file <- shape_file("../includes/Tutorials/nodes.shp");
-	//shape_file roads_shape_file <- shape_file("../includes/Tutorials/roads.shp");
+    //file roads_shape_file <- file("../includes/FinRod2.shp");
+    //file nodes_shape_file <- shape_file("../includes/finalnodes2.shp");
+	shape_file nodes_shape_file <- shape_file("../includes/Tutorials/nodes.shp");
+	shape_file roads_shape_file <- shape_file("../includes/Tutorials/roads.shp");
     geometry shape <- envelope(roads_shape_file);
     graph road_network;
-    
+
     //edifici
     file shape_file_buildings <- file("../includes/PopBuild.shp");
   	list<building> residential_buildings;
@@ -31,8 +31,6 @@ global {
     //date starting_date <- date("2019-09-01-00-00-00");
     //graph pedestrian_network;
 
-
-   	list<car> cars;
    	
    	
     init{
@@ -53,10 +51,9 @@ global {
 
 		//uniamo le strade in un network
 		road_network <- as_driving_graph(road, intersection);
-		
+
 		//creiamo le auto e le inseriamo dentro la strada
       	create car number: 15 with: (location: one_of(intersection).location){
-      		cars <-car;
       	}
       	
       	//creiamo gli edifici
@@ -77,7 +74,11 @@ global {
         }
    }
 
-	species intersection skills: [intersection_skill] ;
+	species intersection skills: [intersection_skill]{
+				aspect base {
+			draw circle(2.0) color: #red  border: #black;
+		}
+	}
 
 	species road skills: [road_skill] {
 	    aspect base {
@@ -92,7 +93,7 @@ global {
 		point driver_target;
 		init{	
 			max_speed <- 50 #km / #h;
-			max_acceleration <- 0.15;
+			max_acceleration <- 2.15;
 		}
 
   	 	reflex select_next_path when: current_path = nil {
@@ -119,9 +120,10 @@ global {
 experiment IntegratedCityExperiment type: gui {
     output synchronized: true{
         display city_display type: 3d background: #white{
-            species building aspect:base;
+            //species building aspect:base;
             species road aspect:base;
             species car aspect: base;
+            species intersection aspect:base;
             //species people aspect: base;
         }
     }
