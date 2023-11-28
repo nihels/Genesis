@@ -1,16 +1,17 @@
 model IntegratedCityModel
-
+								/*DECLARATION OF VARIABLES USED GLOBALLY */
 global {
     // Shared shape files and global variables
     file shape_file_buildings <- file("../includes/PopBuild.shp");
-    file shape_file_roads <- file("../includes/FinRod1.shp");
-    file nodes_shape_file <- shape_file("../includes/finalnodes.shp");
+    file shape_file_roads <- file("../includes/FinRod2.shp");
+    file nodes_shape_file <- shape_file("../includes/finalnodes2.shp");
     geometry shape <- envelope(nodes_shape_file);
     float step <- 0.10 #mn;
     date starting_date <- date("2019-09-01-00-00-00");
     list males<-[9,13,20];
     list females<-[9,12,23];
 	list<people>  multipeople;
+	float min_distance ;
 	
     int min_work_start <- 6;
     int max_work_start <- 8;
@@ -25,12 +26,15 @@ global {
 	list<building> other_residential;
 	list<car> cars;
 	list<point> checkpoint;
+	
+									/*INITIATE AGENTS AND SPECIES */
     init {
         // Unified initialization for both road and building networks
         create building from: shape_file_buildings with: [type::string(read("NATURE"))] {
             if (name = "Chiesa di San Lorenzo Martire" or name = "Hotel Le Sorgenti") {
                 color <- #red;
-            } else {
+            }
+             else {
                 bool var0 <- flip(0.9);
                 if var0 {
                     color <- #olive;
@@ -46,8 +50,7 @@ global {
                 num_lanes <- myself.num_lanes;
                 shape <- polyline(reverse(myself.shape.points));
                 maxspeed <- myself.maxspeed;
-                linked_road <- myself;
-                myself.linked_road <- self;
+
             }
             
             }
@@ -64,10 +67,13 @@ global {
       		cars <- car;
             }
 
-        // Create a unified road network for both cars and people
+        // CREATE a unified  NETWORK for both cars and people
         
-         pedestrian_network <- as_edge_graph(road, 50) ;
+         pedestrian_network <- as_edge_graph(road, 30) ;
+         
          car_network <- as_driving_graph(road, intersection);
+         
+        // 
         
          loop i from: 0 to: length(males) - 1 {
          create people number: males[i] {
@@ -81,6 +87,8 @@ global {
             objective <- "resting";
  			location <- any_location_in(living_place); // Set initial location inside a residential building
             size <- 5;
+            
+           
         }
     }
    	    		//loop i over:females{
@@ -101,17 +109,17 @@ global {
    	    
    	    loop i from:0 to:length(cars)-1 { 
         people this_person <- one_of(multipeople); 
-         this_person.personal_car <- cars[i]; 
-         cars[i].location <- this_person.living_place; 
-         this_person.car_target <- this_person.personal_car.location; 
+        this_person.personal_car <- cars[i]; 
+        cars[i].location <- this_person.living_place; 
+        this_person.car_target <- this_person.personal_car.location; 
         }
-        
-        
-        
-        
+          
+   
     }
     
 }
+
+													/*ATTRIBUTES AND BEHAVIOUR*/
 
 species building {
     string type;
@@ -124,7 +132,7 @@ species building {
 
 species road skills: [skill_road] {
     aspect default {
-        draw shape color: #cadetblue;
+        draw shape color: #cadetblue end_arrow:1;
    }   
 }
 
@@ -144,29 +152,43 @@ species people skills:[moving] {
     string objective;
     point the_target <- nil;
     float size;   
-    // Set age-specific attributes
-    reflex time_to_work when: current_date.hour = start_work and objective = "resting" {
-        objective <- "working";
-        the_target <- any_location_in(working_place);
-    }
-
-  reflex time_to_go_home when: current_date.hour = end_work and objective = "working" {
-        objective <- "resting";
-        the_target <- any_location_in(living_place);
-    }
-
-  reflex move when: the_target != nil and personal_car=nil { 
-        path path_followed <- goto(target: the_target, on: pedestrian_network, return_path: true); 
-        list<geometry> segments <- path_followed.segments; 
-        loop line over: segments { 
-            float dist <- line.perimeter;     
-        } 
-        if the_target = location { 
-            the_target <- nil; 
-        } 
-    } 
     
- /*   //move the people in their car 
+    
+    
+    // Set age-specific attributes
+
+
+  reflex move  { 
+        if (personal_car != nil and not in_car) {
+            // Move towards the car if not already in it
+            if (distance_to(self,personal_car.location) < 1) 
+            { // 1 is the proximity threshold
+                do goto target: personal_car.location;
+            } else {
+                // Enter the car
+                in_car <- true;
+                self.location <- personal_car.location;
+                personal_car.n_of_people_in <- personal_car.n_of_people_in + 1;
+                personal_car.people_inside <- self ; 
+            }
+        } else if (in_car and personal_car != nil) {
+            // If in car, update location to car's location
+            self.location <- personal_car.location;
+        } else {
+            // Regular movement behavior when not using a car
+            if (current_date.hour >= start_work and current_date.hour < end_work) {
+                the_target <- any_location_in(working_place);
+            } else {
+                the_target <- any_location_in(living_place);
+            }
+            if (the_target != nil) {
+                do goto target: the_target;
+            }
+        }
+    
+    } 
+   
+ /*    //move the people in their car 
   reflex move_with_car when: personal_car!=nil { 
         path path_followed <- goto(target: personal_car.location, on: pedestrian_network, return_path: true); 
         list<geometry> segments <- path_followed.segments; 
@@ -184,19 +206,20 @@ species people skills:[moving] {
          } 
          
       	}
-     }
-     */
+     }*/
   aspect base 
   		{
-        draw circle(size) color: color border: #black;
+        draw circle(size) color: color border: #black rotate:heading;
     	}
 }
 
 species car skills: [advanced_driving] {
 	rgb color <- #blue;
 	list<people> people_inside ;
-	int n_of_people_in <- nil;
+    int n_of_people_in <- 0; // Initialized to 0
 	point driver_target;
+	float min_distance;
+    point the_target <- nil;
 	init 
 	{	
 		max_speed <- 5 #km / #h;
@@ -206,16 +229,32 @@ species car skills: [advanced_driving] {
   reflex select_next_path when: current_path = nil {
 		do compute_path graph: car_network target: any(intersection);
 	}
-  reflex commute when: current_path != nil {
-		do drive ;
+	
+  reflex commute when: current_path != nil and n_of_people_in > 0{
+		do drive;
 	}
+	
+ 	reflex move_car {
+        if (n_of_people_in > 0 and the_target != nil) {
+            // If there are people in the car and a target is set, move towards the target
+            do goto target: the_target;
+            if (distance_to(location, the_target) <= 5.0) { // Assuming 5.0 is a proximity threshold
+                // Reset the target upon reaching the destination
+                the_target <- nil;
+            }
+        }
+        
+        }
+	
+	
 	
   aspect base 
   {
 		draw rectangle(20,6) color: color rotate: heading  border: #black;
 	}
 }
-
+													
+													/*EXPERIMENT */
 experiment IntegratedCityExperiment type: gui {
     output {
         display city_display type: 3d {
@@ -223,7 +262,9 @@ experiment IntegratedCityExperiment type: gui {
             species road aspect:default;
             species people aspect: base;
             species car aspect: base;
+            species intersection;
         }
+        
     }
 }
 

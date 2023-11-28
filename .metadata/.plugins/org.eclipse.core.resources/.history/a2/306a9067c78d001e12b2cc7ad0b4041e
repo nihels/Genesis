@@ -1,0 +1,205 @@
+model Genesis
+
+global {
+    file shape_file_buildings <- file("../../includes/PopBuild.shp");
+    file shape_file_roads <- file("../../includes/FinRod2.shp");
+    file nodes_shape_file <- file("../../includes/finalnodes2.shp");
+    file shape_file_bounds <- file("../../includes/FinRod2.shp");
+    geometry shape <- envelope(shape_file_bounds);
+    float step <- 0.10 #mn;
+    date starting_date <- date("2019-09-01-00-00-00");
+
+    list males <- [9, 13, 20];
+    list females <- [9, 12, 23];
+
+    int min_work_start <- 6;
+    int max_work_start <- 8;
+    int min_work_end <- 16;
+    int max_work_end <- 20;
+    float min_speed <- 1.0 #km / #h;
+    float max_speed <- 5.0 #km / #h;
+    graph the_graph;
+    list<building> residential_buildings;
+    list<building> industrial_buildings;
+    list<building> other_residential;
+    list<point> residential_nodes;
+    list<point> industrial_nodes;
+
+    init {
+        create building from: shape_file_buildings with: [type::string(read("NATURE"))] {
+            if (name = "Chiesa di San Lorenzo Martire" or name = "Hotel Le Sorgenti") {
+                color <- #red;
+            } else {
+                bool var0 <- flip(0.9);
+                if var0 {
+                    color <- #skyblue;
+                    type <- "Residential";
+                } else {
+                    color <- #orange;
+                    type <- "Industrial";
+                }
+            }
+        }
+
+        create road from: shape_file_roads;
+        map<road, float> weights_map <- road as_map(each::(each.destruction_coeff * each.shape.perimeter));
+        the_graph <- as_edge_graph(road, 40) with_weights weights_map;
+
+        residential_buildings <- building where (each.type = "Residential");
+        industrial_buildings <- building where (each.type = "Industrial");
+        other_residential <- building where (each.name = "Chiesa di San Lorenzo Martire" or each.name = "Hotel Le Sorgenti");
+
+        // Populate residential and industrial nodes
+        residential_nodes <- list<point>();
+        industrial_nodes <- list<point>();
+        create node from: nodes_shape_file;
+        foreach (node in nodes) {
+            building nearest_residential <- one_of(residential_buildings closest_to node.location);
+            building nearest_industrial <- one_of(industrial_buildings closest_to node.location);
+            float residential_threshold <- 100.0; // Example threshold
+            float industrial_threshold <- 100.0; // Example threshold
+
+            if (distance(node.location, nearest_residential.location) <= residential_threshold) {
+                residential_nodes <- residential_nodes.add(node.location);
+            } else if (distance(node.location, nearest_industrial.location) <= industrial_threshold) {
+                industrial_nodes <- industrial_nodes.add(node.location);
+            }
+        }
+
+        // Create people
+        loop i from: 0 to: length(males) - 1 {
+            create people number: males[i] {
+                color <- #green;
+                speed <- rnd(min_speed, max_speed);
+                start_work <- rnd(min_work_start, max_work_start);
+                end_work <- rnd(min_work_end, max_work_end);
+                living_place <- one_of(residential_buildings);
+                working_place <- one_of(industrial_buildings);
+                objective <- "resting";
+                location <- any_location_in(living_place);
+                size <- 5;
+            }
+        }
+
+        loop i from: 0 to: length(females) - 1 {
+            create people number: females[i] {
+                color <- #pink;
+                speed <- rnd(min_speed, max_speed);
+                start_work <- rnd(min_work_start, max_work_start);
+                end_work <- rnd(min_work_end, max_work_end);
+                living_place <- one_of(residential_buildings);
+                working_place <- one_of(industrial_buildings);
+                objective <- "resting";
+                location <- any_location_in(living_place);
+                size <- 5;
+            }
+        }
+
+        // Create cars
+        create car number: 10 {
+            color <- #magenta;
+            speed <- rnd(min_speed, max_speed);
+            start_work <- rnd(min_work_start, max_work_start);
+            end_work <- rnd(min_work_end, max_work_end);
+            living_place <- one_of(residential_buildings);
+            working_place <- one_of(industrial_buildings);
+            objective <- "resting";
+            location <- any_location_in(living_place);
+            size <- 5;
+        }
+    }
+}
+
+species building {
+    string type;
+    rgb color <- #red;
+
+    aspect base {
+        draw shape color: color;
+    }
+}
+
+species road {
+    float destruction_coeff <- rnd(1.0, 2.0) max: 2.0;
+    rgb color <- #black;
+    
+    aspect base {
+        draw shape color: color;
+    }
+}
+
+species people skills:[moving] {
+    rgb color <- #blue;
+    building living_place <- nil;
+    building working_place <- nil;
+    int start_work;
+    int end_work;
+    string objective;
+    point the_target <- nil;
+    float size;   
+    
+    reflex time_to_work when: current_date.hour = start_work and objective = "resting" {
+        objective <- "working";
+        the_target <- any_location_in(working_place);
+    }
+
+    reflex time_to_go_home when: current_date.hour = end_work and objective = "working" {
+        objective <- "resting";
+        the_target <- any_location_in(living_place);
+    }
+
+    reflex move when: the_target != nil {
+        do goto(target: the_target, on: the_graph, return_path: true);
+        if (the_target = location) {
+            the_target <- nil;
+        }
+    }
+
+    aspect base {
+        draw circle(size) color: color border: #black;
+    }
+}
+
+species car skills:[moving] {
+    rgb color <- #magenta;
+    float speed <- 5 #km / #h;
+    float size;
+    point home_node <- one_of(residential_nodes);
+    point work_node <- one_of(industrial_nodes);
+    point the_target <- nil;
+    string objective <- "resting";
+    int start_work <- 6;
+    int end_work <- 18;
+
+    reflex time_to_work when: current_date.hour = start_work and objective = "resting" {
+        objective <- "working";
+        the_target <- work_node;
+    }
+
+    reflex time_to_go_home when: current_date.hour = end_work and objective = "working" {
+        objective <- "resting";
+        the_target <- home_node;
+    }
+
+    reflex move when: the_target != nil {
+        do goto(target: the_target, on: the_graph, return_path: true);
+        if (the_target = location) {
+            the_target <- nil;
+        }
+    }
+
+    aspect default {
+        draw triangle(10) color: color border: #black rotate: heading;
+    }
+}
+
+experiment city_people type: gui {
+    output {
+        display city_display type: 2d {
+            species building aspect: base;
+            species road aspect: base;
+            species people aspect: base;
+            species car aspect: default;
+        }
+    }
+}
