@@ -11,6 +11,7 @@ global {
     list males<-[9,13,20];
     list females<-[9,12,23];
 	list<people>  multipeople;
+	int prova;
 	
     int min_work_start <- 6;
     int max_work_start <- 8;
