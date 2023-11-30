@@ -1,0 +1,296 @@
+/**
+* Name: Genesis
+* Based on the internal empty template. 
+* Author: DiegoSaitta
+* Tags: 
+*/
+
+
+
+model Genesis
+global {
+	file shape_file_buildings <- file("../includes/PopBuild.shp");
+    file shape_file_roads <- file("../includes/RodNov16.shp");
+    file shape_file_bounds <- file("../includes/RodNov16.shp");
+    geometry shape <- envelope(shape_file_bounds);
+    float step <- 0.4 #mn;
+    date starting_date <- date("2019-09-01-00-00-00");
+      
+	
+
+    //int nb_females_0_4 <- 3;
+    
+    //counter[0] = 0_4 age , counter[1] = 5_9 age, counter[2] = 10_14 age, counter[3] = 15_19 age, counter[4] = 0_4 age. 
+	//list males<-[94,130,95,138,120,141,162,225,195,218,193,192,183,125,147,266];
+    //list females<-[91,102,109,119,124,164,162,201,196,201,207,199,189,148,163,395];
+    	list males<-[9,13,20];
+        list females<-[9,12,23];
+    
+    
+    
+    //int nb_people_m <- 30;  // Number of female people
+    //int nb_people_f <- 30;  // Number of female people
+    int min_work_start <- 6;
+    int max_work_start <- 8;
+    int min_work_end <- 16;
+    int max_work_end <- 20;
+    float min_speed <- 1.0 #km / #h;
+    float max_speed <- 5.0 #km / #h;
+    graph the_graph;
+	list<building> residential_buildings;
+	list<building> industrial_buildings;
+	list<building> other_residential;
+	list<car> cars;
+	list<point> checkpoint;
+	int count_people <- 0;
+	list<people> multipeople;
+	
+	init {
+        create building from: shape_file_buildings with: [type::string(read("NATURE"))] {
+            if (name = "Chiesa di San Lorenzo Martire" or name = "Hotel Le Sorgenti") {
+                color <- #red;
+            } else {
+                bool var0 <- flip(0.9);
+                if var0 {
+                    color <- #skyblue;
+                    type <- "Residential";
+                } else {
+                    color <- #orange;
+                    type <- "Industrial";
+                }
+            }
+        }
+        residential_buildings <- building where (each.type="Residential");
+	    industrial_buildings <- building where (each.type="Industrial");
+		other_residential <- building where (each.name = "Chiesa di San Lorenzo Martire" or each.name = "Hotel Le Sorgenti");
+		 
+        create road from: shape_file_roads;
+        map<road, float> weights_map <- road as_map(each::(each.destruction_coeff * each.shape.perimeter));
+        the_graph <- as_edge_graph(road,70) with_weights weights_map;
+	    
+		create car number: 20 {
+   	    	location <-  one_of(the_graph);
+   	    	cars <- car;
+   	    }
+   	    
+   	    create bus number: 1 {
+   	    	 /*
+   	    	checkpoint[0] <- one_of(the_graph);
+   	    	checkpoint[1] <- one_of(the_graph);
+   	    	checkpoint[2] <- one_of(the_graph);
+   	    	checkpoint[3] <- one_of(the_graph);
+   	    	  */
+   	    	
+   	    	location <- checkpoint[0];
+   	    	next_checkpoint <- checkpoint[1];
+   	    }
+		
+		loop i from: 0 to: length(males) - 1 {
+	        create people number: males[i] {
+	            color <- #green;
+	            speed <- rnd(min_speed, max_speed);
+	            start_work <- rnd(min_work_start, max_work_start);
+	            end_work <- rnd(min_work_end, max_work_end);
+	            living_place <- one_of(residential_buildings);
+	            working_place <- one_of(industrial_buildings);
+	            objective <- "resting";
+	 			location <- any_location_in(living_place); // Set initial location inside a residential building
+	 			//personal_car <- cars[count_people];
+	 			//car_target <- personal_car.location;
+	 			
+	 			//count_people <- count_people+1;
+	 			multipeople <- people;
+	            size <- 5;
+	        }
+	    }
+   	    		//loop i over:females{
+		loop i from: 0 to: length(females)-1{
+	       	create people number: females[i] {
+	            color <- #pink;
+	            speed <- rnd(min_speed, max_speed);
+	            start_work <- rnd(min_work_start, max_work_start);
+	            end_work <- rnd(min_work_end, max_work_end);
+	            living_place <- one_of(residential_buildings);
+	            working_place <- one_of(industrial_buildings);
+	            objective <- "resting";
+ 				location <- any_location_in(living_place); // Set initial location inside a residential building
+ 				//personal_car <- cars[count_people];
+ 				//car_target <- personal_car.location;
+ 				
+ 				//count_people <- count_people+1;
+ 				multipeople <- people;
+ 	        	size <- 5;
+    		}
+   	    }
+   	    
+   	    loop i from:0 to:length(cars)-1 {
+   	    	people this_person <- one_of(multipeople);
+   	    	this_person.personal_car <- cars[i];
+   	    	this_person.car_target <- this_person.personal_car.location;
+   	    }
+   	    
+	}
+}
+
+species bus skills: [moving] {
+	point location <- nil;
+	rgb color <- #blue;
+	list<point> checkpoint <- [{12,10}, {1,2}];
+	point next_checkpoint <- nil;
+	int capacity <- 25;
+	int people_in;
+	int people_exiting;
+	int people_entering;
+	bool ready_to_move <- true;
+	bool is_attending <- false;
+	
+	aspect base {
+        draw rectangle(15,30) color: color border: #black;
+    }
+    
+    reflex moving when: people_in = capacity or ready_to_move = true {
+    	is_attending <- false;
+    	path path_followed <- goto(target: next_checkpoint, on: the_graph, return_path: true);
+        list<geometry> segments <- path_followed.segments;
+        loop line over: segments {
+            float dist <- line.perimeter;
+        }
+        if(next_checkpoint = location) {
+        	is_attending <- true;
+        	speed <- 0.0;
+        }
+    }
+    
+    reflex attending when: is_attending = true{
+    	ready_to_move <- false;
+    	loop i from:0 to: length(checkpoint)-1 {
+    		if(checkpoint[i] = next_checkpoint) {
+    			if(i=length(checkpoint)-1) {
+    				next_checkpoint <- checkpoint[0];
+    			} else {
+    				next_checkpoint <- checkpoint[i+1]; 
+    			}
+    		} 
+    	}
+    	
+    	people_in <- people_in - people_exiting;
+    	people_in <- people_in + people_entering;
+    	ready_to_move <- true;
+    }
+
+}
+
+
+species building {
+    string type;
+    rgb color <- #red;
+
+    aspect base {
+        draw shape color: color;
+    }
+}
+
+species road {
+    float destruction_coeff <- rnd(1.0, 2.0) max: 2.0;
+    //int colorValue <- int(255 * (destruction_coeff - 1)) update: int(255 * (destruction_coeff - 1));
+    //rgb color <- rgb(min([255, colorValue]), max([0, 255 - colorValue]), 0) update: rgb(min([255, colorValue]), max([0, 255 - colorValue]), 0);
+	rgb color <- #black;
+    aspect base {
+        draw shape color: color;
+    }
+}
+species car skills:[moving] {
+	point location <- nil;
+	rgb color <- #blue;
+	float size <- 20;
+	int people_in <- nil;
+	point driver_target <- nil;
+	aspect base {
+        draw triangle(size) color: color border: #black;
+    }
+    
+    reflex move when: people_in != nil {
+        path path_followed <- goto(target: driver_target, on: the_graph, return_path: true);
+        list<geometry> segments <- path_followed.segments;
+        loop line over: segments {
+            float dist <- line.perimeter;
+        }
+    }
+}
+
+species people skills:[moving] {
+    rgb color <- #blue;
+    building living_place <- nil;
+    building working_place <- nil;
+    int start_work;
+    int end_work;
+    string objective;
+    point the_target <- nil;
+    float size;
+    car personal_car <- nil;
+    point car_target;
+
+    // Set age-specific attributes
+
+    reflex time_to_work when: current_date.hour = start_work and objective = "resting" {
+        objective <- "working";
+        the_target <- any_location_in(working_place);
+    }
+
+    reflex time_to_go_home when: current_date.hour = end_work and objective = "working" {
+        objective <- "resting";
+        the_target <- any_location_in(living_place);
+    }
+
+ 	reflex move when: the_target != nil and personal_car=nil {
+        path path_followed <- goto(target: the_target, on: the_graph, return_path: true);
+        list<geometry> segments <- path_followed.segments;
+        loop line over: segments {
+            float dist <- line.perimeter;
+            
+        }
+        if the_target = location {
+            the_target <- nil;
+        }
+    }
+    
+    //move the people in their car
+    reflex move_to_car when: personal_car!=nil {
+        path path_followed <- goto(target: personal_car.location, on: the_graph, return_path: true);
+        list<geometry> segments <- path_followed.segments;
+        loop line over: segments {
+            float dist <- line.perimeter;
+        }
+        
+        if(personal_car.location distance_to location < 100){
+        	personal_car.people_in <- personal_car.people_in +1;
+        	personal_car.driver_target <- the_target; 
+        	self.location <- personal_car.location;
+        }
+    }
+
+    aspect base {
+        draw circle(size) color: color border: #black;
+    }
+}
+
+
+experiment city_people type: gui {
+		//parameter "0 - 4" var: nb_males_0_4 category: "people" ;
+	//	parameter "5 - 9" var: nb_males_5_9 category: "people" ;
+	//	parameter "10 -14" var: nb_males_10_14 category: "people" ;
+	//	parameter "f 0_4" var: nb_females_0_4 category: "people" ;
+		
+	
+    output {
+        display city_display type: 3d {
+            species building aspect: base;
+            species road aspect: base;
+            species people aspect: base;
+            species car aspect: base;
+            species bus aspect: base;
+        }
+    }
+}
+
+
