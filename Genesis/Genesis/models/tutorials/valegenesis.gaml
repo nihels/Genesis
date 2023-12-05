@@ -9,9 +9,9 @@
 
 model Genesis
 global {
-	file shape_file_buildings <- file("../includes/PopBuild.shp");
-    file shape_file_roads <- file("../includes/finalrod.shp");
-    file shape_file_bounds <- file("../includes/finalrod.shp");
+	file shape_file_buildings <- file("../../includes/PopBuild.shp");
+    file shape_file_roads <- file("../../includes/road_suddivided.shp");
+    file shape_file_bounds <- file("../../includes/road_suddivided.shp");
     geometry shape <- envelope(shape_file_buildings);
     float step <- 0.2 #mn;
     date starting_date <- date("2019-09-01-00-00-00");

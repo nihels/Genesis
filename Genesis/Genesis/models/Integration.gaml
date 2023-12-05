@@ -3,13 +3,15 @@ model IntegratedCityModel
 global {
     // Shared shape files and global variables
     file shape_file_buildings <- file("../includes/PopBuild.shp");
-    file shape_file_roads <- file("../includes/FinRod1.shp");
-    file nodes_shape_file <- shape_file("../includes/finalnodes.shp");
+    file shape_file_roads <- file("../includes/road_suddivided.shp");
+    file nodes_shape_file <- shape_file("../includes/nodes_suddivided.shp");
     geometry shape <- envelope(nodes_shape_file);
     float step <- 0.10 #mn;
     date starting_date <- date("2019-09-01-00-00-00");
     list males<-[9,13,20];
+	//list males<-[94,130,95,138,120,141,162,225,195,218,193,192,183,125,147,266];
     list females<-[9,12,23];
+    //list females<-[91,102,109,119,124,164,162,201,196,201,207,199,189,148,163,395];
 	list<people>  multipeople;
 	
     int min_work_start <- 6;
@@ -35,7 +37,7 @@ global {
             } else {
                 bool var0 <- flip(0.9);
                 if var0 {
-                    color <- #olive;
+                    color <- #darkcyan;
                     type <- "Residential";
                 } else {
                     color <- #orange;
@@ -61,10 +63,10 @@ global {
         create intersection from: nodes_shape_file; // Initialize intersections 
           
         // Create a unified road network for both cars and people      
-        pedestrian_network <- as_edge_graph(road, 50) ;
+        pedestrian_network <- as_edge_graph(road, 40) ;
         car_network <- as_driving_graph(road, intersection);
           
-      	create car number: 15 { 
+      	create car number: 50 { 
 	  		location  <- one_of(intersection).location;
 	  		cars <- car;
         } 
@@ -81,7 +83,7 @@ global {
 	            working_place <- one_of(industrial_buildings);
 	            objective <- "resting";
 	 			location <- any_location_in(living_place); // Set initial location inside a residential building
-	            size <- 5;
+	            size <- 3;
         	}
     	}
    	    
@@ -97,7 +99,7 @@ global {
 	            working_place <- one_of(industrial_buildings);
 	            objective <- "resting";
  				location <- any_location_in(living_place); // Set initial location inside a residential building
- 	        	size <- 5;
+ 	        	size <- 3;
     		}
    	    }
    	    
@@ -114,7 +116,7 @@ global {
 
 species building {
     string type;
-    rgb color <- #red;
+    rgb color <- #blue;
 
     aspect base {
         draw shape color: color;
@@ -123,11 +125,11 @@ species building {
 
 species road skills: [road_skill] {
     aspect default {
-        draw shape color: #cadetblue end_arrow: 3;
+        draw shape color: #gray end_arrow: 3;
    }   
 }
 
-species intersection skills: [skill_road_node] ;
+species intersection skills: [intersection_skill] ;
 
 
 species people skills:[moving] {
@@ -206,7 +208,7 @@ species people skills:[moving] {
 }
 
 species car skills: [driving] {
-	rgb color <- #blue;
+	rgb color <- #yellow;
 	list<people> people_inside ;
 	int n_of_people_in <- 0;
 	point actual_target;
@@ -219,11 +221,9 @@ species car skills: [driving] {
 		do compute_path graph: car_network target: any(intersection);
 	}
 	
-	/* 
   	reflex commute when: current_path != nil {
 		do drive;
 	}
-	*/
 	
 	reflex move_car when: n_of_people_in > 0{
 		actual_target <- people_inside[0].the_target;
@@ -232,7 +232,7 @@ species car skills: [driving] {
             //do goto target: actual_target;
             destination <- actual_target;
             do drive;
-            if (distance_to(self.location, actual_target) <= 20.0) { // Assuming 5.0 is a proximity threshold
+            if (distance_to(self.location, actual_target) <= 10.0) { // Assuming 5.0 is a proximity threshold
                 // Reset the target upon reaching the destination
                 actual_target <- nil;
                 people_inside[0].in_car <- false;
@@ -241,26 +241,10 @@ species car skills: [driving] {
                 remove from:people_inside index:length(people_inside)-1;
             }
         }
-		
-		/*
-		loop i from:length(people_inside)-1 to:0 {
-			actual_target <- people_inside[i].the_target;
-			if (actual_target != nil) {
-	            // If there are people in the car and a target is set, move towards the target
-	            do goto target: actual_target;
-	            if (distance_to(location, actual_target) <= 5.0) { // Assuming 5.0 is a proximity threshold
-	                // Reset the target upon reaching the destination
-	                actual_target <- nil;
-	                n_of_people_in <- n_of_people_in -1;
-	                remove from:people_inside index:length(people_inside)-1;
-	            }
-	        }
-		}  
-		*/
     }	
 	
 	aspect base {
-		draw rectangle(20,6) color: color rotate: heading  border: #black;
+		draw rectangle(5,10) color: color rotate: heading + 90  border: #black;
 	}
 	
 }
@@ -273,7 +257,7 @@ experiment IntegratedCityExperiment type: gui {
             species road aspect:default;
             species people aspect: base;
             species car aspect: base;
-            species intersection;
+            species intersection transparency:1;
         }
     }
 }
