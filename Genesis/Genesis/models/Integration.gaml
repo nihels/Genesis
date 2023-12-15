@@ -1,10 +1,15 @@
 model IntegratedCityModel
 
+
 global {
     // Shared shape files and global variables
     file shape_file_buildings <- file("../includes/PopBuild.shp");
-    file shape_file_roads <- file("../includes/FinRod1.shp");
+    file shape_file_roads <- file("../includes/FinRod5.shp");
+    //file shape_file_roads <- file("../includes/Tutorials/roads.shp");
+    
     file nodes_shape_file <- shape_file("../includes/finalnodes.shp");
+    //file nodes_shape_file <-shape_file("../includes/Tutorials/nodes.shp");
+    
     geometry shape <- envelope(nodes_shape_file);
     float step <- 0.10 #mn;
     date starting_date <- date("2019-09-01-00-00-00");
@@ -48,17 +53,37 @@ global {
         industrial_buildings <- building where (each.type="Industrial");
 		other_residential <- building where (each.name = "Chiesa di San Lorenzo Martire" or each.name = "Hotel Le Sorgenti");    
         
+        create intersection from: nodes_shape_file; // Initialize intersections 
+        
 	 	create road from: shape_file_roads {
 	         create road {
 	                num_lanes <- myself.num_lanes;
 	                shape <- polyline(reverse(myself.shape.points));
 	                maxspeed <- myself.maxspeed;
 	                linked_road <- myself;
-	                myself.linked_road <- self;
+	                myself.linked_road <- self;    
             }
+            
+            /*
+             * action split_roads :
+             * take a road
+             * find if it intersect with some nodes (intersections) looping all nodes
+             * if the condition is true ->  create road from the begin of road to node and from node to the end of road 
+             * 								call recursively split_roads in these two roads
+             * else -> "this is a final road"
+             * 
+             * 													--.---.---.--
+             * 		1: prende la prima intersect       	--   ---.---.--
+             * 											--   ---   ---.--
+             * 
+             * 
+             * 		2:prende la seconda					--.---   ---.--
+             * 
+             * 
+             */
+            
         }	
         
-        create intersection from: nodes_shape_file; // Initialize intersections 
           
         // Create a unified road network for both cars and people      
         pedestrian_network <- as_edge_graph(road, 50) ;
@@ -104,11 +129,14 @@ global {
 		loop i from:0 to:length(cars)-1 { 
 			people this_person <- one_of(multipeople); 
 			this_person.personal_car <- cars[i]; 
-			cars[i].location <- this_person.living_place; 
+			cars[i].location <- one_of(car_network) ; 
 			this_person.car_target <- this_person.personal_car.location; 
         }  
         
     }
+    
+    
+    //fuction that split roads to became multiple part of roads
     
 }
 
@@ -127,7 +155,7 @@ species road skills: [road_skill] {
    }   
 }
 
-species intersection skills: [skill_road_node] ;
+species intersection skills: [intersection_skill];
 
 
 species people skills:[moving] {
@@ -146,15 +174,17 @@ species people skills:[moving] {
     bool exited <- false;
     
     //change objecting to working
+    reflex clock {
+    	write "The time is: " +current_date.hour+ ":00";
+    }
+    
     reflex time_to_work when: current_date.hour = start_work and objective = "resting" {
-    	write "it's time to work";
         objective <- "working";
         the_target <- any_location_in(working_place);
     }
 
 	//change objecting to resting
   	reflex time_to_go_home when: current_date.hour = end_work and objective = "working" {
-        write "it's time to go home";
         objective <- "resting";
         the_target <- any_location_in(living_place);
         
@@ -219,12 +249,12 @@ species car skills: [driving] {
 		do compute_path graph: car_network target: any(intersection);
 	}
 	
-	/* 
-  	reflex commute when: current_path != nil {
-		do drive;
-	}
-	*/
 	
+  	reflex commute when: current_path != nil {
+		do drive_random graph:car_network;
+	}
+	
+	/* 
 	reflex move_car when: n_of_people_in > 0{
 		actual_target <- people_inside[0].the_target;
 		if (actual_target != nil) {
@@ -241,7 +271,7 @@ species car skills: [driving] {
                 remove from:people_inside index:length(people_inside)-1;
             }
         }
-		
+		*/
 		/*
 		loop i from:length(people_inside)-1 to:0 {
 			actual_target <- people_inside[i].the_target;
@@ -257,7 +287,7 @@ species car skills: [driving] {
 	        }
 		}  
 		*/
-    }	
+    //}	
 	
 	aspect base {
 		draw rectangle(20,6) color: color rotate: heading  border: #black;
@@ -268,12 +298,13 @@ species car skills: [driving] {
 
 experiment IntegratedCityExperiment type: gui {
     output {
+    	
         display city_display type: 2d {
             species building aspect:base;
             species road aspect:default;
             species people aspect: base;
             species car aspect: base;
-            species intersection;
+            //species intersection;
         }
     }
 }
